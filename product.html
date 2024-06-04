@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Product</title>
+	<style type="text/css">
+		#product
+		{
+			width: 100%;
+			display: flex;
+			align-items: start;
+			justify-content: space-between;
+		}
+		#categories
+		{
+			width: 20%;
+			border: 1px solid gray;
+		}
+		#selection
+		{
+			width: 80%;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.item
+		{
+			text-align: center;
+			background: white;
+			width: 31%;
+			height: auto;
+			margin: 0 1% 1% 1%;
+			padding-top: 7vh;
+			position: relative;
+			border: 1px solid silver;
+		}
+		.item h1
+		{
+			color: #130f40;
+		}
+		.item .btn
+		{
+			width: 40%;
+		}
+		.lgimg
+		{
+			width: 67%;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="product">
+		<div id="categories">
+			<ul>
+				<li>
+					<span>Product 1</span>
+					<hr>
+					<ul>
+						<li>- P1-Category</li>
+						<li>- P1-Category</li>
+						<li>- P1-Category</li>
+						<li>- P1-Category</li>
+						<li>- P1-Category</li>
+					</ul>
+				</li>
+				<li>
+					<span>Product 2</span>
+					<hr>
+					<ul>
+						<li>- P2-Category</li>
+						<li>- P2-Category</li>
+						<li>- P2-Category</li>
+						<li>- P2-Category</li>
+						<li>- P2-Category</li>
+					</ul>
+				</li>
+				<li>
+					<span>Product 3</span>
+					<hr>
+					<ul>
+						<li>- P3-Category</li>
+						<li>- P3-Category</li>
+						<li>- P3-Category</li>
+						<li>- P3-Category</li>
+						<li>- P3-Category</li>
+					</ul>
+				</li>
+				<li>
+					<span>Product 4</span>
+					<hr>
+					<ul>
+						<li>- P4-Category</li>
+						<li>- P4-Category</li>
+						<li>- P4-Category</li>
+						<li>- P4-Category</li>
+						<li>- P4-Category</li>
+					</ul>
+				</li>
+				<li>
+					<span>Product 5</span>
+					<hr>
+					<ul>
+						<li>- P5-Category</li>
+						<li>- P5-Category</li>
+						<li>- P5-Category</li>
+						<li>- P5-Category</li>
+						<li>- P5-Category</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="selection">
+			<div class="item">
+				<img src="images/cat_1.jpg">
+				<h1>Product - 1</h1>
+				<button class="btn">add to cart</button>
+			</div>
+			<div class="item">
+				<img src="images/cat_2.png">
+				<h1>Product - 1</h1>
+				<button class="btn">add to cart</button>
+			</div>
+			<div class="item">
+				<img src="images/cat_3.jpg">
+				<h1>Product - 1</h1>
+				<button class="btn">add to cart</button>
+			</div>
+			<div class="item">
+				<img src="images/cat_4.jpg" class="lgimg">
+				<h1>Product - 1</h1>
+				<button class="btn">add to cart</button>
+			</div>
+			<div class="item">
+				<img src="images/cat_5.jpg" class="lgimg">
+				<h1>Product - 1</h1>
+				<button class="btn">add to cart</button>
+			</div>
+			<div class="item">
+				<img src="images/cat_6.jpg">
+				<h1>Product - 1</h1>
+				<button class="btn">add to cart</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
