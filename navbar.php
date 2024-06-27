@@ -1,6 +1,6 @@
 <div id="nav">
 	<i class="fas fa-lg fa-bars" onclick="show()"></i>
-	<div class="logo">LS Instruments</div>
+	<div class="logo"><img src="images/logo.png"></div>
 	<div class="menu">
 		<i class="fas fa-2x fa-times" onclick="closemenu()"></i>
 		<ul>
@@ -53,8 +53,7 @@
 			<li><a href="factoryview.php">Factory View</a></li>
 			<li><a href="catalogue.php">Catalogue</a></li>
 			<li><a href="inquiry.php">Inquiry</a></li>
-			<li><a href="contactus.php">Contact Us</a></li>
 		</ul>
 	</div>
-	<button class="btn">Navigate</button>
+	<a href="contactus.php" class="btn">Contact Us</a>
 </div>

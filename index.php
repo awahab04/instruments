@@ -20,7 +20,7 @@
 		<?php include 'navbar.php'?>
 		<div id="slider">
 			<div class="text">
-				<h1>WELCOME TO BUSHIDO INSTRUMENTS</h1>
+				<h1>WELCOME TO LS INSTRUMENTS</h1>
 				<p>Bushido Instruments has actively engaged in production of Medical Instruments since 2001 as one of the largest selling brand in Surgical Instruments, Dental Instruments, Veterinary Instruments, Orthopedic Instruments, Electro Instruments, Eye Instruments and Devices.</p>
 				<button class="btn">order now</button>
 			</div>

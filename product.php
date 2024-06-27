@@ -28,170 +28,209 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script> var prod = 'p<?php if ($product !== null) {echo $product;} ?>' </script>
 	<title>Product</title>
 </head>
 <body>
-	
+    <?php include 'navbar.php'?>
+    <div class="loader"></div> <!-- Loader element added here -->
+    <div id="product">
+        <div id="categories">
+            <ul>
+                <?php
+                    function generateCatHTML($productName, $productIndex, $categories)
+                    {
+                        $html = '<li>
+                                    <p id="p' . ($productIndex + 1) . '" class="p-s product">
+                                        <span>' . $productName . '</span>
+                                        <i class="fas fa-angle-down"></i><hr>
+                                    </p>
+                                    <ul class="hidden" id="p' . ($productIndex + 1) . '-items">';
 
-	<?php include 'navbar.php'?>
-	<div id="product">
-		<div id="categories">
-			<ul>
-				<?php
-					function generateCatHTML($productName, $productIndex, $categories)
-					{
-						$html = '<li>
-									<p id="p' . ($productIndex + 1) . '" class="p-s product">
-										<span>' . $productName . '</span>
-										<i class="fas fa-angle-down"></i><hr>
-									</p>
-									<ul class="hidden" id="p' . ($productIndex + 1) . '-items">';
+                        foreach ($categories as $categoryIndex => $category) {
+                            $html .= '<li id="p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1) . '">- ' . $category['name'] . '</li>';
+                        }
 
-						foreach ($categories as $categoryIndex => $category) {
-							$html .= '<li id="p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1) . '">- ' . $category['name'] . '</li>';
-						}
+                        $html .= '  </ul>
+                                </li>';
 
-						$html .= '  </ul>
-								</li>';
-						
-						return $html;
-					}
+                        return $html;
+                    }
 
-					foreach ($data as $productIndex => $product) {
-						if (!isset($product['contents']) || !is_array($product['contents'])) {
-							continue;
-						}
-						echo generateCatHTML($product['name'], $productIndex, $product['contents']);
-					}
-				?>
-			</ul>
-		</div>
-		<div id="selection">
-		<?php
-			function generateHTML($productName, $categoryName, $imageName, $productIndex, $categoryIndex)
-			{
-				$className = 'p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1) . '-item';
-				return '<div class="hidden item ' . $className . '">
-							<img src="LS Instrument Website Images/' . $productName . '/' . $categoryName . '/' . $imageName . '">
-							<h2>' . htmlspecialchars(substr($imageName, 0, -4)) . '</h2>
-							<div class="btn addToCart">add to cart</div>
-						</div>';
-			}
+                    foreach ($data as $productIndex => $product) {
+                        if (!isset($product['contents']) || !is_array($product['contents'])) {
+                            continue;
+                        }
+                        echo generateCatHTML($product['name'], $productIndex, $product['contents']);
+                    }
+                ?>
+            </ul>
+        </div>
+        <div id="selection">
+        <?php
+            function generateHTML($productName, $categoryName, $imageName, $productIndex, $categoryIndex)
+            {
+                $className = 'p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1) . '-item';
+                return '<div class="hidden item ' . $className . '">
+                            <img src="LS Instrument Website Images/' . $productName . '/' . $categoryName . '/' . $imageName . '">
+                            <h2>' . htmlspecialchars(substr($imageName, 0, -4)) . '</h2>
+                            <div class="btn addToCart">add to cart</div>
+                        </div>';
+            }
 
-			foreach ($data as $productIndex => $product) {
-				if (!isset($product['contents']) || !is_array($product['contents'])) {
-					continue;
-				}
-				foreach ($product['contents'] as $categoryIndex => $category) {
-					if (!isset($category['name'], $category['contents'])) {
-						continue;
-					}
-					foreach ($category['contents'] as $item) {
-						if (!isset($item['name'])) {
-							continue;
-						}
-						echo generateHTML($product['name'], $category['name'], $item['name'], $productIndex, $categoryIndex);
-					}
-				}
-			}
-		?>
-		</div>
-	</div>
-	<?php include 'footer.php'?>
-	<script type="text/javascript" src="js/script.js"></script>
-	<script type="text/javascript">
-		document.addEventListener('DOMContentLoaded', function () {
-			function setCookie(name, value) {
-				document.cookie = `${name}=${JSON.stringify(value)}; path=/`;
-			}
+            foreach ($data as $productIndex => $product) {
+                if (!isset($product['contents']) || !is_array($product['contents'])) {
+                    continue;
+                }
+                foreach ($product['contents'] as $categoryIndex => $category) {
+                    if (!isset($category['name'], $category['contents'])) {
+                        continue;
+                    }
+                    foreach ($category['contents'] as $item) {
+                        if (!isset($item['name'])) {
+                            continue;
+                        }
+                        echo generateHTML($product['name'], $category['name'], $item['name'], $productIndex, $categoryIndex);
+                    }
+                }
+            }
+        ?>
+        </div>
+    </div>
+    <div id="banner">
+        <p>The Product is added to your Cart </p><i class="fas fa-xmark"></i>
+      </div>
+    <?php include 'footer.php'?>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.loader').style.display = 'block';
 
-			function getCookie(name) {
-				const nameEQ = `${name}=`;
-				const ca = document.cookie.split(';');
-				for (let i = 0; i < ca.length; i++) {
-					let c = ca[i].trim();
-					if (c.indexOf(nameEQ) === 0) return JSON.parse(c.substring(nameEQ.length));
-				}
-				return null;
-			}
+            function setCookie(name, value) {
+                document.cookie = `${name}=${JSON.stringify(value)}; path=/`;
+            }
 
-			function addProductToCart(event) {
-				event.preventDefault();
+            function getCookie(name) {
+                const nameEQ = `${name}=`;
+                const ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i].trim();
+                    if (c.indexOf(nameEQ) === 0) return JSON.parse(c.substring(nameEQ.length));
+                }
+                return null;
+            }
 
-				const h2Text = event.target.closest('.item').querySelector('h2').innerText;
-				let products = getCookie("products") || [];
+            function showBannerTemporarily() {
+                var banner = document.getElementById('banner');
+                var bannerP = document.querySelector('#banner p');
+                var bannerIcon = document.querySelector('#banner i');
+                
+                var originalWidth = banner.style.width;
+                var originalPadding = banner.style.padding;
+                
+                banner.style.width = '30%';
+                banner.style.padding = '10px';
+                setTimeout(function() {
+                    bannerP.style.display = 'block';
+                    bannerIcon.style.display = 'block';
+                }, 200);
+                
+                setTimeout(function() {
+                    banner.style.width = originalWidth;
+                    banner.style.padding = originalPadding;
+                    bannerP.style.display = 'none';
+                    bannerIcon.style.display = 'none';
+                }, 5000);
+            }
 
-				if (!products.includes(h2Text)) {
-					products.push(h2Text);
-					setCookie("products", products);
-				}
+            document.querySelector('#banner i').addEventListener('click', () => {
+                var banner = document.getElementById('banner');
+                var bannerP = document.querySelector('#banner p');
+                var bannerIcon = document.querySelector('#banner i');
 
-				window.location.href = "inquiry.php";
-			}
+                banner.style.width = '0';
+                banner.style.padding = '10px';
+                bannerP.style.display = 'none';
+                bannerIcon.style.display = 'none';
+            })
 
-			document.querySelectorAll('.addToCart').forEach(button => {
-				button.addEventListener('click', addProductToCart);
-			});
+            function addProductToCart(event) {
+                event.preventDefault();
 
-			function hideAllItems() {
-				document.querySelectorAll('.item').forEach(item => item.style.display = "none");
-			}
+                const h2Text = event.target.closest('.item').querySelector('h2').innerText;
+                let products = getCookie("products") || [];
 
-			function showItemsByClass(className) {
-				hideAllItems();
-				document.querySelectorAll(`.${className}`).forEach(item => item.style.display = "block");
-			}
+                if (!products.includes(h2Text)) {
+                    products.push(h2Text);
+                    setCookie("products", products);
+                }
 
-			function resetCategoryColors() {
-				document.querySelectorAll('#categories li > ul > li').forEach(element => {
-					element.style.color = "#a5a5a5";
-				});
-			}
+                showBannerTemporarily();
+            }
 
-			function addCategoryClickListener(categoryId, className) {
-				const categoryElement = document.getElementById(categoryId);
-				if (categoryElement) {
-					categoryElement.addEventListener('click', () => {
-						resetCategoryColors();
-						categoryElement.style.color = "black";
-						showItemsByClass(className);
-					});
-				}
-			}
+            document.querySelectorAll('.addToCart').forEach(button => {
+                button.addEventListener('click', addProductToCart);
+            });
 
-			function toggleCategoryList(productId) {
-				const productElement = document.getElementById(productId);
-				const categoryList = document.getElementById(productId + '-items');
-				if (productElement && categoryList) {
-					productElement.addEventListener('click', () => {
-						categoryList.style.display = (categoryList.style.display === "block") ? "none" : "block";
-					});
-				}
-			}
+            function hideAllItems() {
+                document.querySelectorAll('.item').forEach(item => item.style.display = "none");
+            }
 
-			<?php
-				foreach ($data as $productIndex => $product) {
-					$productId = 'p' . ($productIndex + 1);
-					echo "toggleCategoryList('$productId');\n";
+            function showItemsByClass(className) {
+                hideAllItems();
+                document.querySelectorAll(`.${className}`).forEach(item => item.style.display = "block");
+            }
 
-					foreach ($product['contents'] as $categoryIndex => $category) {
-						$categoryId = 'p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1);
-						$className = 'p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1) . '-item';
-						echo "addCategoryClickListener('$categoryId', '$className');\n";
-					}
-				}
-			?>
-			if(prod!==null){
-				document.getElementById(prod).click();
-				document.getElementById(`${prod}-cat1`).click();
-			}
+            function resetCategoryColors() {
+                document.querySelectorAll('#categories li > ul > li').forEach(element => {
+                    element.style.color = "#a5a5a5";
+                });
+            }
 
-		});
+            function addCategoryClickListener(categoryId, className) {
+                const categoryElement = document.getElementById(categoryId);
+                if (categoryElement) {
+                    categoryElement.addEventListener('click', () => {
+                        resetCategoryColors();
+                        categoryElement.style.color = "black";
+                        showItemsByClass(className);
+                    });
+                }
+            }
 
-	</script>
+            function toggleCategoryList(productId) {
+                const productElement = document.getElementById(productId);
+                const categoryList = document.getElementById(productId + '-items');
+                if (productElement && categoryList) {
+                    productElement.addEventListener('click', () => {
+                        categoryList.style.display = (categoryList.style.display === "block") ? "none" : "block";
+                    });
+                }
+            }
+
+            <?php
+                foreach ($data as $productIndex => $product) {
+                    $productId = 'p' . ($productIndex + 1);
+                    echo "toggleCategoryList('$productId');\n";
+
+                    foreach ($product['contents'] as $categoryIndex => $category) {
+                        $categoryId = 'p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1);
+                        $className = 'p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1) . '-item';
+                        echo "addCategoryClickListener('$categoryId', '$className');\n";
+                    }
+                }
+            ?>
+            if(prod!==null){
+                document.getElementById(prod).click();
+                document.getElementById(`${prod}-cat1`).click();
+            }
+
+            document.querySelector('.loader').style.display = 'none';
+        });
+
+    </script>
 
 </body>
 </html>

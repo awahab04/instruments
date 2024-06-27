@@ -11,55 +11,53 @@
 <body>
 
 	<?php include 'navbar.php'?>
-	<div id="fact-view">
-		<h1>Factory View</h1>
-		<div class="fact-view">
-			<div class="box">
-            <img src="images/ex-img-1.jpg">
-            <h3>Front</h3>
+    <div id="fact-view">
+        <h1>Factory View</h1>
+        <div class="fact-view">
+            <div class="container">
+                <img src="images/canada.jpeg">
+                <div class="data">
+                    <span class="name"><i class="fa fa-map-marker-alt"></i> Canada</span>
+                    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="images/germany.jpg">
+                <div class="data">
+                    <span class="name"><i class="fa fa-map-marker-alt"></i> Germany</span>
+                    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="images/uk.jpg">
+                <div class="data">
+                    <span class="name"><i class="fa fa-map-marker-alt"></i> UnitedKingdom</span>
+                    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="images/sweden.jpg">
+                <div class="data">
+                    <span class="name"><i class="fa fa-map-marker-alt"></i> Sweden</span>
+                    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="images/switzerland.jpeg" style="width: 100%;">
+                <div class="data">
+                    <span class="name"><i class="fa fa-map-marker-alt"></i> SwitzerLand</span>
+                    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                </div>
+            </div>
+            <div class="container">
+                <img src="images/netherland.jpg">
+                <div class="data">
+                    <span class="name"><i class="fa fa-map-marker-alt"></i> NetherLands</span>
+                    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                </div>
+            </div>
         </div>
-
-        <div class="box">
-            <img src="images/ex-img-2.jpg">
-            <h3>Back</h3>
-        </div>
-
-        <div class="box">
-            <img src="images/ex-img-3.jpg">
-            <h3>Osaka (Japan)</h3>
-        </div>
-
-        <div class="box">
-            <img src="images/ex-img-4.jpg">
-            <h3>Osaka (Japan)</h3>
-        </div>
-
-        <div class="box">
-            <img src="images/ex-img-5.jpg">
-            <h3>brazil</h3>
-        </div>
-
-        <div class="box">
-            <img src="images/ex-img-6.jpg">
-            <h3>maldive</h3>
-        </div>
-
-        <div class="box">
-            <img src="images/ex-img-7.jpg">
-            <h3>iceland</h3>
-        </div>
-
-        <div class="box">
-            <img src="images/ex-img-8.jpg">
-            <h3>alaska</h3>
-        </div>
-
-        <div class="box">
-            <img src="images/ex-img-9.jpg">
-            <h3>maldive</h3>
-        </div>
-		</div>
-	</div>
+    </div>
 	<?php include 'footer.php'?>
     <script type="text/javascript" src="js/script.js"></script>
 

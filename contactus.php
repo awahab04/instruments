@@ -26,19 +26,19 @@
 					<h2>FEEDBACK</h2>
 				<form>
 					<div class="input-box">
-						<input type="text" name="name" id="name">
+						<input type="text" name="name" id="name" class="field">
 						<span>Name</span>
 					</div>
 					<div class="input-box">
-						<input type="text" name="mobile" id="mobile">
+						<input type="text" name="mobile" id="mobile" class="field">
 						<span>Mobile</span>
 					</div>
 					<div class="input-box full-width">
-						<input type="email" name="email" id="email">
+						<input type="email" name="email" id="email" class="field">
 						<span>Email</span>
 					</div>
 					<div class="input-box full-width">
-						<textarea></textarea>
+						<textarea class="field"></textarea>
 						<span>Write Your message here....</span>
 					</div>
 					<button class="btn">Send Message</button>
@@ -51,6 +51,34 @@
 	</div>
 	<?php include 'footer.php'?>
 	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+			const inputElements = document.querySelectorAll('.field');
+
+			function handleInputChange(event) {
+				moveSpan();
+			}
+
+			function moveSpan() {
+				const inputLabels = document.querySelectorAll('.input-box span');
+				inputLabels.forEach(function(inputLabel, index) {
+					inputLabel.style.fontSize = '12px';
+					inputLabel.style.fontWeight = '400';
+					inputLabel.style.letterSpacing = '1px';
+
+					if (index === inputLabels.length - 1) {
+						inputLabel.style.transform = 'translateY(-60px)';
+					} else {
+						inputLabel.style.transform = 'translateY(-20px)';
+					}
+				});
+			}
+
+			inputElements.forEach(function(inputElement) {
+				inputElement.addEventListener('input', handleInputChange);
+			});
+		});
+	</script>
 
 </body>
 </html>
