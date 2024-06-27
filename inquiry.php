@@ -35,15 +35,13 @@
 				document.cookie = `${name}=${JSON.stringify(value)}; path=/`;
 			}
 			function getCookie(name) {
-				const nameEQ = `${name}=`;
-				const ca = document.cookie.split(';');
-				for (let i = 0; i < ca.length; i++) {
-					let c = ca[i].trim();
-					if (c.indexOf(nameEQ) === 0) return JSON.parse(c.substring(nameEQ.length));
-				}
-				return null;
-			}
-			 function loadInquiryItems() {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return JSON.parse(parts.pop().split(';').shift());
+                return [];
+            }
+
+			function loadInquiryItems() {
 				const products = getCookie("products") || [];
 				const itemsContainer = document.querySelector('.items');
 				let totalQuantity = 0;
@@ -51,27 +49,28 @@
 				products.forEach(product => {
 					const itemDiv = document.createElement('div');
 					itemDiv.classList.add('item');
+					const imageSrc = `LS Instrument Website Images/${product.productName}/${product.categoryName}/${product.fileName}`;
 					itemDiv.innerHTML = `
 						<div class="image">
-							<img src="images/inq-i1.jpg" alt="${product}">
+							<img src="${imageSrc}" alt="${product.fileName}">
 						</div>
 						<div class="details">
-							<p>${product}</p>
-							<input type="number" value="1"><br>
+							<p>${product.fileName.slice(0, -4)}</p>
+							<input type="number" value="${product.quantity}" min="1"><br>
 							<button class="btn updateBtn">Update</button>
 						</div>
 							<i class="fas fa-xmark removeBtn"></i>
 					`;
 					itemsContainer.appendChild(itemDiv);
 
-					totalQuantity += 1;
+					totalQuantity += product.quantity;
 
 					itemDiv.querySelector('.removeBtn').addEventListener('click', () => {
 						removeProductFromCart(product);
 					});
 
 					itemDiv.querySelector('.updateBtn').addEventListener('click', () => {
-						updateTotalQuantity();
+						updateTotalQuantity(product, itemDiv.querySelector('input').value);
 					});
 				});
 
@@ -80,12 +79,21 @@
 
 			function removeProductFromCart(product) {
 				let products = getCookie("products") || [];
-				products = products.filter(p => p !== product);
+				products = products.filter(p => p.productName !== product.productName || p.categoryName !== product.categoryName || p.fileName !== product.fileName);
 				setCookie("products", products);
 				location.reload();
 			}
 
-			function updateTotalQuantity() {
+			function updateTotalQuantity(product, newQuantity) {
+				let products = getCookie("products") || [];
+				products = products.map(p => {
+					if (p.productName === product.productName && p.categoryName === product.categoryName && p.fileName === product.fileName) {
+						p.quantity = parseInt(newQuantity, 10);
+					}
+					return p;
+				});
+				setCookie("products", products);
+
 				const quantities = document.querySelectorAll('.items input[type="number"]');
 				let totalQuantity = 0;
 
@@ -97,7 +105,7 @@
 			}
 
 			loadInquiryItems();
-		})
+		});
 	</script>
 
 </body>

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Inquiry Form</title>
 </head>
@@ -58,11 +59,11 @@
 				inputElement.addEventListener('input', handleInputChange);
 			});
 		});
-
 		function getCookie(name) {
 			const value = `; ${document.cookie}`;
 			const parts = value.split(`; ${name}=`);
-			if (parts.length === 2) return parts.pop().split(';').shift();
+			if (parts.length === 2) return JSON.parse(parts.pop().split(';').shift());
+			return [];
 		}
 
 		function deleteCookie(name) {
@@ -74,19 +75,20 @@
 			const lname = document.getElementById('lname').value;
 			const mobile = document.getElementById('mobile').value;
 			const email = document.getElementById('email').value;
-			const products = JSON.parse(getCookie('products') || '[]');
+			const products = getCookie('products');
 
 			if (!fname || !lname || !mobile || !email) {
 				alert('Please fill in all the fields.');
 				return;
 			}
 
-			const message = `Hello, I would like to make an inquiry. Here are my details:
+			const productsList = products.map(product => `${product.fileName.slice(0, -4)} (Quantity: ${product.quantity})`).join(', ');
+			const message = `Hello, I would like to make a Purchase. Here are my details:
 			\nFirst Name: ${fname}
 			\nLast Name: ${lname}
 			\nMobile: ${mobile}
 			\nEmail: ${email}
-			\nProducts: ${products.join(', ')}`; 
+			\nProducts: ${productsList}`; 
 
 			const whatsappUrl = `https://api.whatsapp.com/send?phone=+923043349349&text=${encodeURIComponent(message)}`;
 

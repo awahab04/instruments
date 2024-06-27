@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Contact Us</title>
 </head>
@@ -26,22 +27,22 @@
 					<h2>FEEDBACK</h2>
 				<form>
 					<div class="input-box">
-						<input type="text" name="name" id="name" class="field">
+						<input type="text" name="name" id="name" class="field" required>
 						<span>Name</span>
 					</div>
 					<div class="input-box">
-						<input type="text" name="mobile" id="mobile" class="field">
+						<input type="text" name="mobile" id="mobile" class="field" required>
 						<span>Mobile</span>
 					</div>
 					<div class="input-box full-width">
-						<input type="email" name="email" id="email" class="field">
+						<input type="email" name="email" id="email" class="field" required>
 						<span>Email</span>
 					</div>
 					<div class="input-box full-width">
-						<textarea class="field"></textarea>
+						<textarea id="message" class="field" required></textarea>
 						<span>Write Your message here....</span>
 					</div>
-					<button class="btn">Send Message</button>
+					<button class="btn" onclick="sendMessage()">Send Message</button>
 				</form>
 			</div>
 		</div>
@@ -78,6 +79,27 @@
 				inputElement.addEventListener('input', handleInputChange);
 			});
 		});
+		function sendMessage() {
+			const name = document.getElementById('name').value.trim();
+			const mobile = document.getElementById('mobile').value.trim();
+			const email = document.getElementById('email').value.trim();
+			const messageText = document.getElementById('message').value.trim();
+
+			if (name === '' || mobile === '' || email === '' || messageText === '') {
+				alert('Please fill in all fields.');
+				return false;
+			}
+			
+			const message = `New Contact Form Submission:
+			\nName: ${name}
+			\nMobile: ${mobile}
+			\nEmail: ${email}
+			\nMessage: ${messageText}`;
+
+			const whatsappUrl = `https://api.whatsapp.com/send?phone=+923043349349&text=${encodeURIComponent(message)}`;
+
+			window.open(whatsappUrl, '_blank');
+		}
 	</script>
 
 </body>

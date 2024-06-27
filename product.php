@@ -35,7 +35,9 @@
 </head>
 <body>
     <?php include 'navbar.php'?>
-    <div class="loader"></div> <!-- Loader element added here -->
+    <div id="loader">
+        <div class="loader"></div>
+    </div>
     <div id="product">
         <div id="categories">
             <ul>
@@ -106,20 +108,18 @@
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector('.loader').style.display = 'block';
+            const data = <?php echo json_encode($data); ?>;
+            document.getElementById('loader').style.display = 'block';
 
             function setCookie(name, value) {
                 document.cookie = `${name}=${JSON.stringify(value)}; path=/`;
             }
 
             function getCookie(name) {
-                const nameEQ = `${name}=`;
-                const ca = document.cookie.split(';');
-                for (let i = 0; i < ca.length; i++) {
-                    let c = ca[i].trim();
-                    if (c.indexOf(nameEQ) === 0) return JSON.parse(c.substring(nameEQ.length));
-                }
-                return null;
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return JSON.parse(parts.pop().split(';').shift());
+                return [];
             }
 
             function showBannerTemporarily() {
@@ -159,15 +159,55 @@
             function addProductToCart(event) {
                 event.preventDefault();
 
-                const h2Text = event.target.closest('.item').querySelector('h2').innerText;
-                let products = getCookie("products") || [];
+                const itemElement = event.target.closest('.item');
+                const h2Text = itemElement.querySelector('h2').innerText;
 
-                if (!products.includes(h2Text)) {
-                    products.push(h2Text);
-                    setCookie("products", products);
+                let productObject = findProductInData(data, h2Text);
+
+                if (productObject) {
+                    // Set quantity to 1
+                    productObject.quantity = 1;
+
+                    let products = getCookie("products") || [];
+
+                    const isDuplicate = products.some(
+                        (product) =>
+                            product.productName === productObject.productName &&
+                            product.categoryName === productObject.categoryName &&
+                            product.fileName === productObject.fileName
+                    );
+
+                    if (!isDuplicate) {
+                        products.push(productObject);
+                        setCookie("products", products);
+                    }
+
+                    showBannerTemporarily();
+                } else {
+                    console.error('Product not found in data');
                 }
+            }
 
-                showBannerTemporarily();
+
+            function findProductInData(data, h2Text) {
+                for (const item of data) {
+                    if (item.type === 'folder') {
+                        for (const subItem of item.contents) {
+                            if (subItem.type === 'folder') {
+                                for (const file of subItem.contents) {
+                                    if (file.type === 'image' && file.name.includes(h2Text)) {
+                                        return {
+                                            productName: item.name,
+                                            categoryName: subItem.name,
+                                            fileName: file.name
+                                        };
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return null;
             }
 
             document.querySelectorAll('.addToCart').forEach(button => {
@@ -226,8 +266,8 @@
                 document.getElementById(prod).click();
                 document.getElementById(`${prod}-cat1`).click();
             }
-
-            document.querySelector('.loader').style.display = 'none';
+            
+            document.getElementById('loader').style.display = 'none';
         });
 
     </script>
