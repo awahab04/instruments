@@ -46,18 +46,35 @@
 			const inputElements = document.querySelectorAll('.field');
 
 			function handleInputChange(event) {
-				const inputLabels = document.querySelectorAll('.input-box span');
-				inputLabels.forEach(function(inputLabel, index) {
-					inputLabel.style.fontSize = '12px';
-					inputLabel.style.fontWeight = '400';
-					inputLabel.style.letterSpacing = '1px';
+				const inputElement = event.target;
+				const inputLabel = inputElement.parentElement.querySelector('span');
+
+				if (inputElement.value) {
+					moveSpan(inputLabel, true);
+				} else {
+					moveSpan(inputLabel, false);
+				}
+			}
+
+			function moveSpan(inputLabel, isActive) {
+				inputLabel.style.fontSize = '12px';
+				inputLabel.style.fontWeight = '400';
+				inputLabel.style.letterSpacing = '1px';
+
+				if (isActive) {
 					inputLabel.style.transform = 'translateY(-20px)';
-				});
+				} else {
+					inputLabel.style.transform = 'translateY(0)';
+					inputLabel.style.fontSize = '18px';
+					inputLabel.style.fontWeight = '300';
+					inputLabel.style.letterSpacing = '0';
+				}
 			}
 
 			inputElements.forEach(function(inputElement) {
 				inputElement.addEventListener('input', handleInputChange);
 			});
+			messageElement.addEventListener('input', handleMessageInput);
 		});
 		function getCookie(name) {
 			const value = `; ${document.cookie}`;
