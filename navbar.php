@@ -6,6 +6,7 @@
 		<ul>
 			<li><a href="index.php">Home</a></li>
 			<li><a href="about.php">About Us</a></li>
+			<li class="hidden products-list"><a href="product.php?p=1">Products</a></li>
 			<li class="products-dropdown">
 				<a>Products <i class="fas fa-angle-down" style="color: black;"></i></a>
 				<ul class="dropdown">

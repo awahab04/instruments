@@ -13,15 +13,18 @@
 	<div id="inquiry">
 		<div class="inquiry">
 			<div class="items">
-		<h1>Cart</h1></div>
-			<div class="summary">
-				<p class="sum-head">Information about order</p>
-				<p>Total Quantity: <span id="totalQuantity">0</span></p>
-				<div class="btn">	
-					<a href="product.php?p=1" >Add More Products</a>
-				</div>
-				<div class="btn">
-					<a href="inquiryform.php">Send Inquiry</a>
+				<h1>Cart</h1>
+			</div>
+			<div>
+				<div class="summary">
+					<p class="sum-head">Information about order</p>
+					<p>Total Quantity: <span id="totalQuantity">0</span></p>
+					<div class="btn">	
+						<a href="product.php?p=1" >Add More Products</a>
+					</div>
+					<div class="btn">
+						<a href="inquiryform.php">Send Inquiry</a>
+					</div>
 				</div>
 			</div>
 		</div>

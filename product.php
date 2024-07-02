@@ -36,7 +36,9 @@
 <body>
     <?php include 'navbar.php'?>
     <div id="loader">
-        <div class="loader"></div>
+        <div class="loader-data">
+            <div class="loader"></div>
+        </div>
     </div>
     <div id="product">
         <div id="categories">
@@ -71,34 +73,36 @@
             </ul>
         </div>
         <div id="selection">
-        <?php
-            function generateHTML($productName, $categoryName, $imageName, $productIndex, $categoryIndex)
-            {
-                $className = 'p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1) . '-item';
-                return '<div class="hidden item ' . $className . '">
-                            <img src="LS Instrument Website Images/' . $productName . '/' . $categoryName . '/' . $imageName . '">
-                            <h2>' . htmlspecialchars(substr($imageName, 0, -4)) . '</h2>
-                            <div class="btn addToCart">add to cart</div>
-                        </div>';
-            }
-
-            foreach ($data as $productIndex => $product) {
-                if (!isset($product['contents']) || !is_array($product['contents'])) {
-                    continue;
-                }
-                foreach ($product['contents'] as $categoryIndex => $category) {
-                    if (!isset($category['name'], $category['contents'])) {
-                        continue;
+            <div class="products">
+                <?php
+                    function generateHTML($productName, $categoryName, $imageName, $productIndex, $categoryIndex)
+                    {
+                        $className = 'p' . ($productIndex + 1) . '-cat' . ($categoryIndex + 1) . '-item';
+                        return '<div class="hidden item ' . $className . '">
+                                    <img src="LS Instrument Website Images/' . $productName . '/' . $categoryName . '/' . $imageName . '">
+                                    <h2>' . htmlspecialchars(substr($imageName, 0, -4)) . '</h2>
+                                    <div class="btn addToCart">add to cart</div>
+                                </div>';
                     }
-                    foreach ($category['contents'] as $item) {
-                        if (!isset($item['name'])) {
+
+                    foreach ($data as $productIndex => $product) {
+                        if (!isset($product['contents']) || !is_array($product['contents'])) {
                             continue;
                         }
-                        echo generateHTML($product['name'], $category['name'], $item['name'], $productIndex, $categoryIndex);
+                        foreach ($product['contents'] as $categoryIndex => $category) {
+                            if (!isset($category['name'], $category['contents'])) {
+                                continue;
+                            }
+                            foreach ($category['contents'] as $item) {
+                                if (!isset($item['name'])) {
+                                    continue;
+                                }
+                                echo generateHTML($product['name'], $category['name'], $item['name'], $productIndex, $categoryIndex);
+                            }
+                        }
                     }
-                }
-            }
-        ?>
+                ?>
+            </div>
         </div>
     </div>
     <div id="banner">
@@ -151,7 +155,7 @@
                 var bannerIcon = document.querySelector('#banner i');
 
                 banner.style.width = '0';
-                banner.style.padding = '10px';
+                banner.style.padding = '0';
                 bannerP.style.display = 'none';
                 bannerIcon.style.display = 'none';
             })

@@ -15,12 +15,12 @@
 			<div class="info">
 				<h3>CONTACT INFORMATION</h3>
 				<h3>PAKISTAN OFFICE:</h3>
-				<p>Bushido Instruments
+				<p>LS Instruments
 				Address ; C-115-116, S.I.E Sialkot - Pakistan</p>
 				<p>
 					<br><b>Mob: </b> +92-300-9611909
-					<br><b>Email: </b> info@bushidoinstruments.com
-					<br><b>Web: </b> www.bushidoinstruments.com
+					<br><b>Email: </b> info@lsinstruments.com
+					<br><b>Web: </b> www.lsinstruments.com
 				</p>
 			</div>
 			<div class="form">
@@ -39,7 +39,7 @@
 						<span>Email</span>
 					</div>
 					<div class="input-box full-width">
-						<textarea id="message" class="field" required></textarea>
+						<textarea id="message" class="textField" required></textarea>
 						<span>Write Your message here....</span>
 					</div>
 					<button class="btn" onclick="sendMessage()">Send Message</button>
@@ -55,30 +55,66 @@
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", function() {
 			const inputElements = document.querySelectorAll('.field');
+			const messageElement = document.querySelector('.textField');
 
 			function handleInputChange(event) {
-				moveSpan();
+				const inputElement = event.target;
+				const inputLabel = inputElement.parentElement.querySelector('span');
+
+				if (inputElement.value) {
+					moveSpan(inputLabel, true);
+				} else {
+					moveSpan(inputLabel, false);
+				}
 			}
 
-			function moveSpan() {
-				const inputLabels = document.querySelectorAll('.input-box span');
-				inputLabels.forEach(function(inputLabel, index) {
-					inputLabel.style.fontSize = '12px';
-					inputLabel.style.fontWeight = '400';
-					inputLabel.style.letterSpacing = '1px';
+			function handleMessageInput(event) {
+				const inputElement = event.target;
+				const inputLabel = inputElement.parentElement.querySelector('span');
 
-					if (index === inputLabels.length - 1) {
-						inputLabel.style.transform = 'translateY(-60px)';
-					} else {
-						inputLabel.style.transform = 'translateY(-20px)';
-					}
-				});
+				if (inputElement.value) {
+					moveMessageSpan(inputLabel, true);
+				} else {
+					moveMessageSpan(inputLabel, false);
+				}
+			}
+
+			function moveSpan(inputLabel, isActive) {
+				inputLabel.style.fontSize = '12px';
+				inputLabel.style.fontWeight = '400';
+				inputLabel.style.letterSpacing = '1px';
+
+				if (isActive) {
+					inputLabel.style.transform = 'translateY(-20px)';
+				} else {
+					inputLabel.style.transform = 'translateY(0)';
+					inputLabel.style.fontSize = '18px';
+					inputLabel.style.fontWeight = '300';
+					inputLabel.style.letterSpacing = '0';
+				}
+			}
+
+			function moveMessageSpan(inputLabel, isActive) {
+				inputLabel.style.fontSize = '12px';
+				inputLabel.style.fontWeight = '400';
+				inputLabel.style.letterSpacing = '1px';
+
+				if (isActive) {
+					inputLabel.style.transform = 'translateY(-60px)';
+				} else {
+					inputLabel.style.transform = 'translateY(0)';
+					inputLabel.style.fontSize = '18px';
+					inputLabel.style.fontWeight = '300';
+					inputLabel.style.letterSpacing = '0';
+				}
 			}
 
 			inputElements.forEach(function(inputElement) {
 				inputElement.addEventListener('input', handleInputChange);
 			});
+			messageElement.addEventListener('input', handleMessageInput);
 		});
+
 		function sendMessage() {
 			const name = document.getElementById('name').value.trim();
 			const mobile = document.getElementById('mobile').value.trim();
