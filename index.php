@@ -40,49 +40,49 @@
 	<div id="products">
 		<h1>Products and Categories</h1>
 		<div class="productslist">
-			<a class="container">
+			<a class="container" href="product.php?p=1">
 				<img src="images/cat_1.jpg">
 				<div class="data">
 					<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 					<p>Plastic Surgery Instruments</p>
 				</div>
 			</a>
-			<a class="container">
+			<a class="container" href="product.php?p=2">
 				<img src="images/cat_2.png">
 				<div class="data">
 					<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 					<p>Neurosurgery Instruments</p>
 				</div>
 			</a>
-			<a class="container">
+			<a class="container" href="product.php?p=3">
 				<img src="images/cat_3.jpg">
 				<div class="data">
 					<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 					<p>Cardiovascular & Thoracic Instruments</p>
 				</div>
 			</a>
-			<a class="container">
+			<a class="container" href="product.php?p=4">
 				<img src="images/cat_4.jpg">
 				<div class="data">
 					<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 					<p>ENT Surgery Instruments</p>
 				</div>
 			</a>
-			<a class="container">
+			<a class="container" href="product.php?p=5">
 				<img src="images/cat_5.jpg">
 				<div class="data">
 					<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 					<p>Intestinal and Rectal Instruments</p>
 				</div>
 			</a>
-			<a class="container">
+			<a class="container" href="product.php?p=6">
 				<img src="images/cat_6.jpg">
 				<div class="data">
 					<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
 					<p>Urology Instruments</p>
 				</div>
 			</a>
-			<a class="container">
+			<a class="container" href="product.php?p=7">
 				<img src="images/cat_7.jpg">
 				<div class="data">
 					<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-right"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
