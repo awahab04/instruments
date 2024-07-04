@@ -27,7 +27,7 @@
 			consequat.<h3>Contact Us:</h3> Duis aute irure dolor in reprehenderit in voluptate velit esse
 			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			<button class="btn">See Our Products</button>
+			<a  href="product.php?p=1" class="btn">See Our Products</a>
 		</div>
 	</div>
 	<?php include 'footer.php'?>
