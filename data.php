@@ -1,5 +1,4 @@
 <?php
-	echo "string";
 	function scanFolder($dir) {
 		$result = [];
 
