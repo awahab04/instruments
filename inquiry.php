@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Inquiry</title>
+	<style type="text/css">
+	</style>
 </head>
 <body>
 
@@ -14,6 +16,9 @@
 		<div class="inquiry">
 			<div class="items">
 				<h1>Cart</h1>
+				<div class="no-items">
+					<p>Your Cart is Empty</p>
+				</div>
 			</div>
 			<div>
 				<div class="summary">
@@ -38,16 +43,23 @@
 				document.cookie = `${name}=${JSON.stringify(value)}; path=/`;
 			}
 			function getCookie(name) {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return JSON.parse(parts.pop().split(';').shift());
-                return [];
+				const value = `; ${document.cookie}`;
+				const parts = value.split(`; ${name}=`);
+				if (parts.length === 2) return JSON.parse(parts.pop().split(';').shift());
+				return [];
             }
 
 			function loadInquiryItems() {
 				const products = getCookie("products") || [];
 				const itemsContainer = document.querySelector('.items');
+				const noItemsDiv = document.querySelector('.no-items');
 				let totalQuantity = 0;
+
+				if (products.length === 0) {
+					noItemsDiv.style.display = 'flex';
+				} else {
+					noItemsDiv.style.display = 'none';
+				}
 
 				products.forEach(product => {
 					const itemDiv = document.createElement('div');
