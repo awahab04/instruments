@@ -54,6 +54,7 @@
 			<li><a href="factoryview.php">Factory View</a></li>
 			<li><a href="catalogue.php">Catalogue</a></li>
 			<li><a href="inquiry.php">Inquiry</a></li>
+			<li><a href="contactus.php" class="contactus">Contact Us</a></li>
 		</ul>
 	</div>
 	<a href="contactus.php" class="btn">Contact Us</a>
