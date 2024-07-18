@@ -24,7 +24,7 @@
 		return $result;
 	}
 
-	$folderStructure = scanFolder('C:\xampp\htdocs\project\LS Instrument Website Images');
+	$folderStructure = scanFolder('LS Instrument Website Images');
 
 	echo json_encode($folderStructure, JSON_PRETTY_PRINT);
 ?>
