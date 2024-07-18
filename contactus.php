@@ -39,7 +39,7 @@
 						<span>Email</span>
 					</div>
 					<div class="input-box full-width">
-						<textarea id="message" class="textField" required></textarea>
+						<input type="text" name="message" id="message" class="field" required>
 						<span>Write Your message here....</span>
 					</div>
 					<button class="btn" onclick="sendMessage()">Send Message</button>
@@ -55,7 +55,6 @@
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", function() {
 			const inputElements = document.querySelectorAll('.field');
-			const messageElement = document.querySelector('.textField');
 
 			function handleInputChange(event) {
 				const inputElement = event.target;
@@ -68,20 +67,8 @@
 				}
 			}
 
-			function handleMessageInput(event) {
-				const inputElement = event.target;
-				const inputLabel = inputElement.parentElement.querySelector('span');
-
-				if (inputElement.value) {
-					moveMessageSpan(inputLabel, true);
-				} else {
-					moveMessageSpan(inputLabel, false);
-				}
-			}
-
 			function moveSpan(inputLabel, isActive) {
-				inputLabel.style.fontSize = '12px';
-				inputLabel.style.fontWeight = '400';
+				inputLabel.style.fontSize = '10px';
 				inputLabel.style.letterSpacing = '1px';
 
 				if (isActive) {
@@ -94,25 +81,9 @@
 				}
 			}
 
-			function moveMessageSpan(inputLabel, isActive) {
-				inputLabel.style.fontSize = '12px';
-				inputLabel.style.fontWeight = '400';
-				inputLabel.style.letterSpacing = '1px';
-
-				if (isActive) {
-					inputLabel.style.transform = 'translateY(-60px)';
-				} else {
-					inputLabel.style.transform = 'translateY(0)';
-					inputLabel.style.fontSize = '18px';
-					inputLabel.style.fontWeight = '300';
-					inputLabel.style.letterSpacing = '0';
-				}
-			}
-
 			inputElements.forEach(function(inputElement) {
 				inputElement.addEventListener('input', handleInputChange);
 			});
-			messageElement.addEventListener('input', handleMessageInput);
 		});
 
 		function sendMessage() {
@@ -132,7 +103,7 @@
 			\nEmail: ${email}
 			\nMessage: ${messageText}`;
 
-			const whatsappUrl = `https://api.whatsapp.com/send?phone=+923043349349&text=${encodeURIComponent(message)}`;
+			const whatsappUrl = `https://api.whatsapp.com/send?phone=+923083731896&text=${encodeURIComponent(message)}`;
 
 			window.open(whatsappUrl, '_blank');
 		}
