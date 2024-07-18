@@ -12,7 +12,7 @@
 			transition: all .2s linear;
 		}
 		a {
-			color: white;
+			color: #ffffffff;
 		}
 		i {
 			cursor: pointer;
@@ -32,7 +32,7 @@
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
-			background: white;
+			background: #ffffffff;
 			position: fixed;
 			z-index: 20;
 		}
@@ -44,11 +44,14 @@
 			padding: 10px;
 		}
 		#nav li a {
-			color: black;
+			color: #0a0a0aff;
 		}
 		#nav li a:hover {
 			cursor: pointer;
 			text-decoration: underline !important;
+		}
+		.contactus {
+			display: none;
 		}
 		.menu {
 			position: relative;
@@ -57,7 +60,7 @@
 			display: none;
 		}
 		.menu .fa-times {
-			color: white;
+			color: #ffffffff;
 			display: none;
 		}
 		.dropdown {
@@ -67,7 +70,7 @@
 			left: 152px;
 			border: 1px solid #f0eeee;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 4px 10px 0 rgba(0, 0, 0, 0.05);
-			background: white;
+			background: #ffffffff;
 			display: flex;
 			visibility: hidden;
 			padding: 10px;
@@ -107,16 +110,16 @@
 			display: none;
 		}
 		.btn {
-			color: white;
+			color: #ffffffff;
 			border-radius: 10px;
 			padding: 10px 25px;
-			background: #272b29ff;
+			background: #0a0a0aff;
 			font-size: 13px;
-			border: 1px solid #272b29ff;
+			border: 1px solid #0a0a0aff;
 		}
 		.btn:hover {
-			color: black;
-			background: white;
+			color: #0a0a0aff;
+			background: #ffffffff;
 			cursor: pointer;
 		}
 		.menu .fa-times {
@@ -129,10 +132,12 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-evenly;
-			color: black;
+			color: #0a0a0aff;
+			transition: all .5s linear;
 		}
 		.text {
 			width: 50%;
+			transition: all .5s linear;
 		}
 		.text h1 {
 			font-size: 40px;
@@ -144,6 +149,7 @@
 			width: 37%;
 			padding-top: 5vh;
 			overflow: hidden;
+			transition: all .5s linear;
 		}
 		.slider img {
 			width: 100%;
@@ -165,7 +171,7 @@
 			margin: auto;
 			margin-top: 5vh;
 			width: 87%;
-			color: white;
+			color: #ffffffff;
 			text-align: center;
 		}
 		.productslist .container {
@@ -192,7 +198,7 @@
 			top: 2px;
 		}
 		.productslist .container p {
-			color: white;
+			color: #ffffffff;
 			font-size: 30px;
 			text-align: left;
 			font-weight: bold;
@@ -230,7 +236,7 @@
 			background: none !important;
 		}
 		.productslist .container:hover p {
-			color: white;
+			color: #ffffffff;
 			display: block;
 		}
 
@@ -255,7 +261,7 @@
 		}
 		#categories ul .p-s {
 			font-size: 20px;
-			color: black;
+			color: #0a0a0aff;
 			padding:10px;
 		}
 		#categories ul .p-s:hover {
@@ -265,7 +271,7 @@
 			font-size: 15px;
 		}
 		#categories ul i {
-			color: black;
+			color: #0a0a0aff;
 			position: absolute;
 			right: 10px;
 		}
@@ -290,7 +296,7 @@
 		#selection .item {
 			width: 31%;
 			text-align: center;
-			background: white;
+			background: #ffffffff;
 			margin: 0 1% 1% 1%;
 			position: relative;
 			border: 1px solid silver;
@@ -316,7 +322,7 @@
 			right: 20px;
 			bottom: 20px;
 			background: #646881ff;
-			color: white;
+			color: #ffffffff;
 			padding: 0;
 			display: flex;
 			align-items: center;
@@ -329,7 +335,7 @@
 		#banner i {
 			border-left: 1px solid silver;
 			padding: 10px;
-			color: white;
+			color: #ffffffff;
 			margin-left: 50px;
 			display: none;
 		}
@@ -404,7 +410,7 @@
 			margin-top: -5%;
 		}
 		.cs1, .cs2 {
-			background: white;
+			background: #ffffffff;
 			text-align: center;
 			padding: 50px 30px;
 			width: 40%;
@@ -456,8 +462,8 @@
 			position: relative;
 			border-radius: 10px;
 			box-shadow: 10px 5px 10px -2px #f5f6fa, 0px 10px 10px #f5f6fa, -10px 5px 10px -2px #f5f6fa;
-			background: white;
-			color: black;
+			background: #ffffffff;
+			color: #0a0a0aff;
 			overflow: hidden;
 			cursor: pointer;
 		}
@@ -497,11 +503,15 @@
 			position: relative;
 			border-radius: 10px;
 			box-shadow: 10px 5px 10px -2px #f5f6fa, 0px 10px 10px #f5f6fa, -10px 5px 10px -2px #f5f6fa;
-			background: white;
-			color: black;
+			background: #ffffffff;
+			color: #0a0a0aff;
 			overflow: hidden;
 			cursor: pointer;
 		}
+		/*.exhibition .container .image {
+			width: 100%;
+			height: 38.7vh;
+		}*/
 		.exhibition .container img {
 			width: 100%;
 		}
@@ -511,6 +521,7 @@
 		.exhibition .container .data {
 			margin: 15px;
 		}
+
 
 
 
@@ -580,32 +591,36 @@
 		.contactform {
 			position: relative;
 			width: 85%;
-			height: 85vh;
+			height: 100vh;
 			margin: auto;
 		}
 		.contactform .info {
-			color: white;
+			color: #ffffffff;
 			position: absolute;
 			width: 35%;
-			top:6vh;
-			background-color:#7e846bff;
+			height: 70vh;
+			padding: 5vw;
+			top:10vh;
+			background-color:#646881ff;
 			z-index: 2;
 			box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-			padding: 60px 40px;
 			border-radius: 5px;
 		}
 		.contactform .info p {
-			color: white;
+			color: #ffffffff;
+			font-size: 1.3vw;
+			line-height: 2.5vw;
 		}
 		.contactform .info h3 {
+			font-size: 1.5vw;
 			margin-bottom: 3vh;
 		}
 		.contactform .form {
 			position: absolute;
 			background-color: #f3f8f1ff;
-			padding: 5vh 2%;
-			padding-top: 12vh;
 			width: 85%;
+			height: 90vh;
+			padding: 20vh 0;
 			padding-left: 25%;
 			right: 0;
 			border-radius: 5px;
@@ -617,15 +632,15 @@
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
-			margin-top: 5vh;
-			padding-bottom: 10vh;
+			margin: 10vh 0;
+			margin-right: 5%;
 		}
 		.input-box {
 			position: relative;
 			margin-bottom: 30px;
 			width: 47%;
 		}
-		.input-box input, .input-box textarea {
+		.input-box input {
 			width: 100%;
 			resize: none;
 			font-size: 18px;
@@ -634,11 +649,8 @@
 			background: #f3f8f1ff;
 			border-bottom: 1px solid #777;
 		}
-		.input-box input:-webkit-autofill, .input-box textarea:-webkit-autofill {
+		.input-box input:-webkit-autofill {
 			-webkit-box-shadow: 0 0 0 1000px #f3f8f1ff inset;
-		}
-		.input-box textarea {
-			height: 60px;
 		}
 		.input-box span {
 			position: absolute;
@@ -651,12 +663,6 @@
 		}
 		.input-box input:focus ~ span {
 			transform: translateY(-20px);
-			font-size: 12px;
-			font-weight: 400;
-			letter-spacing: 1px;
-		}
-		.input-box textarea:focus ~ span {
-			transform: translateY(-60px);
 			font-size: 12px;
 			font-weight: 400;
 			letter-spacing: 1px;
@@ -692,13 +698,13 @@
 		{
 			width: 35%;
 			height: 45vh;
-			color: white;
+			color: #ffffffff;
 			position: absolute;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			top: 6vh;
-			background-color: #7e846bff;
+			background-color: #646881ff;
 			z-index: 2;
 			box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 			border-radius: 5px;
@@ -753,7 +759,7 @@
 			margin: 10px 0;
 		}
 		.items .item p {
-			color: black;
+			color: #0a0a0aff;
 		}
 		.items .item .image {
 			width: 20%;
@@ -770,6 +776,17 @@
 			margin: 10px 0;
 			border-radius: 5px;
 			border: 1px solid;
+		}
+		.inquiry .no-items{
+			width: 100%;
+			height: 35vh;
+			margin-top: 5vh;
+			color: rgba(0, 0, 0, 0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 5px;
+			border: 1px solid rgba(0, 0, 0, 0.3);
 		}
 		.summary {
 			position: relative;
@@ -789,13 +806,13 @@
 			font-size: 20px;
 		}
 		.summary .btn {
-			border: 1px solid #272b29ff;
+			border: 1px solid #0a0a0aff;
 			width: 100%;
 			text-align: center;
 			margin-bottom: 5vh;
 		}
 		.summary .btn:hover a{
-			color: black;
+			color: #0a0a0aff;
 		}
 		.removeBtn {
 			position: absolute;
@@ -810,18 +827,18 @@
 		
 		#footer {
 			width: 100%;
-			background: #7e846bff;
-			color: black;
+			background: #646881ff;
+			color: #ffffffff;
 			margin-top: 20px;
 			position: relative;
 			padding: 5vh 0;
 		}
 		#footer i {
-			color: black;
+			color: #ffffffff;
 			margin-right: 15px;
 		}
 		#footer a {
-			color: black;
+			color: #ffffffff;
 		}
 		.row {
 			width: 100%;
@@ -856,7 +873,7 @@
 			justify-content: space-between;
 		}
 		.copyright p {
-			color: black;
+			color: #ffffffff;
 		}
 
 
@@ -906,7 +923,7 @@
 			}
 			.menu ul a {
 				font-size: 30px;
-				color: white !important;
+				color: #ffffffff !important;
 			}
 			#header {
 				height: auto;
@@ -914,7 +931,7 @@
 			#slider {
 				padding-bottom: 10vh;
 			}
-			#slider .text h1 {
+			#slider .text h1, #products h1 {
 				font-size: 28px;
 			}
 			#products .container {
@@ -976,7 +993,7 @@
 			.cs2{
 				padding: 8vh 30px;
 			}
-			.exhibition .container {
+			.exhibition .container, .fact-view .container {
 				width: 45%;
 			}
 			.catalogue .item {
@@ -992,10 +1009,13 @@
 			.inquiry .summary .sum-head{
 				font-size: 16px;
 			}
+			.inquiry .no-items {
+				height: 30vh;
+			}
 			.inquiryform .info{
 				top: 3vh;
 			}
-			#contact{
+			/*#contact{
 				padding-top: 13vh;
 			}
 			#contact .contactform{
@@ -1009,8 +1029,8 @@
 			}
 			#contact .contactform .form{
 				width: 85%;
-				padding: 5vh 2% 2% 25%;
-			}
+				padding: 5vh 2% 5vh 25%;
+			}*/
 			.col-1{
 				width: 20%;
 			}
@@ -1026,8 +1046,14 @@
 			.catalogue .item {
 				width: 46%;
 			}
+			/*#contact .contactform .form{
+				padding-bottom: 10vh;
+			}
 			#contact .contactform .info{
 				top: 3vh;
+			}*/
+			#footer i {
+				margin-right: 10px;
 			}
 		}
 
@@ -1037,12 +1063,12 @@
 
 
 		@media screen and (max-width: 860px) {
-			#contact .contactform .info h3{
-				font-size: 17px;
+			#contact .contactform .info p{
+				font-size: 1.8vw;
 			}
-			#contact .contactform .info br{
+			/*#contact .contactform .info br{
 				display: none;
-			}
+			}*/
 		}
 
 
@@ -1052,6 +1078,9 @@
 
 
 		@media screen and (max-width: 768px) {
+			.productslist .data p {
+				font-size: 25px;
+			}
 			#nav .logo{
 				width: 10%;
 			}
@@ -1077,7 +1106,10 @@
 				margin-bottom: 5vh;
 				width: 90%;
 			}
-			#contact{
+			#contact .contactform .info p, #contact .contactform .info h3{
+				font-size: 2.2vw;
+			}
+			/*#contact{
 				padding-top: 13vh;
 			}
 			#contact .contactform .info{
@@ -1086,8 +1118,9 @@
 			}
 			#contact .contactform .form{
 				width: 85%;
-				padding: 7vh 2% 5% 25%;
-			}
+				padding: 7vh 2% 7vh 25%;
+				height: 80vh;
+			}*/
 			.col-1{
 				width: 22%;
 			}
@@ -1104,11 +1137,18 @@
 
 
 		@media screen and (max-width: 650px) {
-			#contact .contactform .info{
+			.productslist .data p {
+				font-size: 22px;
+			}
+			/*#contact .contactform .info{
 				top: 0;
 			}
 			#contact .contactform .info h3{
 				font-size: 15px;
+			}*/
+			.inquiry .no-items {
+				width: 95%;
+				height: 35vh;
 			}
 		}
 
@@ -1118,6 +1158,23 @@
 
 
 		@media screen and (max-width: 580px) {
+			#nav {
+				flex-direction: row-reverse;
+				justify-content: space-between;
+				padding: 3vh 7vh;
+			}
+			.contactus {
+				display: block;
+			}
+			#nav .logo{
+				width: 15%;
+			}
+			#nav .btn {
+				display: none;
+			}
+			.productslist .data p {
+				font-size: 25px;
+			}
 			#slider {
 				padding-top: 15vh;
 				display: block;
@@ -1126,9 +1183,9 @@
 				margin: auto;
 				margin-bottom: 5vh;
 				height: auto;
-				width: 80%;
+				width: 90%;
 			}
-			#slider .text h1 {
+			#slider .text h1, #products h1 {
 				font-size: 30px;
 			}
 			#slider .slider {
@@ -1153,6 +1210,9 @@
 			}
 			#footer .col-1 {
 				width: 90%;
+			}
+			#footer i {
+				font-size: 13px;
 			}
 			#footer .col-2, .col-3 {
 				width: 50%;
@@ -1198,7 +1258,7 @@
 				margin-bottom: 5vh;
 				width: 90%;
 			}
-			.exhibition .container {
+			.exhibition .container, .fact-view .container {
 				width: 95%;
 			}
 			.catalogue .item {
@@ -1211,6 +1271,11 @@
 				width: 90%;
 				margin: auto;
 			}
+			.inquiry .no-items {
+				width: 100%;
+				height: 30vh;
+				margin-bottom: 5vh;
+			}
 			.inquiry .summary {
 				width: 90%;
 				margin: auto;
@@ -1218,22 +1283,36 @@
 			.inquiry .items .item {
 				width: auto;
 			}
-			#contact{
+
+
+			/*#contact{
 				padding-top: 15vh;
-			}
+			}*/
 			#contact .contactform{
-				height: 50rem;
+				height: 110vh;
 				margin-bottom: 5vh;
+			}
+			#contact .contactform .info p, #contact .contactform .info h3 {
+				font-size: 4vw;
+			}
+			#contact .contactform .info p {
+				line-height: 1.5rem;
 			}
 			#contact .contactform .info{
 				width: 100%;
+				height: 40vh;
 				top: 0;
 			}
 			#contact .contactform .form{
 				width: 100%;
 				bottom: 0;
-				padding: 10vh 7% 0 7%;
+				padding: 35vh 0;
 			}
+			#contact .contactform .form form {
+				margin: 0 5%;
+			}
+
+
 			.input-box{
 				width: 100%;
 			}
