@@ -22,7 +22,7 @@
 			<div class="text">
 				<h1>WELCOME TO LS INSTRUMENTS</h1>
 				<p>Bushido Instruments has actively engaged in production of Medical Instruments since 2001 as one of the largest selling brand in Surgical Instruments, Dental Instruments, Veterinary Instruments, Orthopedic Instruments, Electro Instruments, Eye Instruments and Devices.</p>
-				<button class="btn">order now</button>
+				<a href="product.php?p=1" class="btn">order now</a>
 			</div>
 			<div class="slider owl-carousel owl-theme">
 				<div class="data item">
