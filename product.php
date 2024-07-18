@@ -6,7 +6,7 @@
 	}
 	$ch = curl_init();
 
-	curl_setopt($ch, CURLOPT_URL, 'http://localhost/project/data.php');
+	curl_setopt($ch, CURLOPT_URL, 'http://ls-instrument.com/data.php');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 	$response = curl_exec($ch);
