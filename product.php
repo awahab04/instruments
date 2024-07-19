@@ -6,7 +6,7 @@
 	}
 	$ch = curl_init();
 
-	curl_setopt($ch, CURLOPT_URL, 'http://ls-instrument.com/data.php');
+	curl_setopt($ch, CURLOPT_URL, 'http://localhost/project/data.php');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 	$response = curl_exec($ch);
@@ -103,7 +103,7 @@
 				var originalWidth = banner.style.width;
 				var originalPadding = banner.style.padding;
 				
-				banner.style.width = '30%';
+				banner.style.width = '20em';
 				banner.style.padding = '10px';
 				setTimeout(function() {
 					bannerP.style.display = 'block';
