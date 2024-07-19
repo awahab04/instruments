@@ -327,9 +327,13 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			z-index: 1000;
+			border-radius: 3px;
+			box-shadow: 3px 3px 10px rgba(265, 265, 265, 0.1);
 		}
 		#banner p {
 			width: 100%;
+			font-size: 0.9rem;
 			display: none;
 		}
 		#banner i {
@@ -1197,25 +1201,27 @@
 			}
 			#footer .row {
 				align-items: center;
-				text-align: center;
+				margin: auto;
 				padding-bottom: 5vh;
 				padding: 0;
 			}
 			#footer .logo{
-				width: 20%;
-				margin: auto;
+				width: 50%;
+				margin-bottom: 5vh;
 			}
 			#footer .column{
 				margin: 2vh 0;
 			}
 			#footer .col-1 {
-				width: 90%;
+				width: 50.1%;
+				margin-left: 15%;
 			}
 			#footer i {
 				font-size: 13px;
 			}
 			#footer .col-2, .col-3 {
-				width: 50%;
+				width: 45%;
+				margin: auto;
 			}
 			#footer .copyright{
 				margin-top: 5vh;
@@ -1269,7 +1275,7 @@
 			}
 			.inquiry .items {
 				width: 90%;
-				margin: auto;
+				margin: 5vh auto;
 			}
 			.inquiry .no-items {
 				width: 100%;
@@ -1282,6 +1288,7 @@
 			}
 			.inquiry .items .item {
 				width: auto;
+				padding: 1vh 0;
 			}
 
 
@@ -1323,11 +1330,7 @@
 				height: auto;
 			}
 			#inquiryform .inquiryform .info{
-				width: 100%;
-				top: 0;
-				position: relative;
-				padding: 3vh 0;
-				text-align: center;
+				display: none;
 			}
 			#inquiryform .inquiryform .form{
 				width: 100%;
