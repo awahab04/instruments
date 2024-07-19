@@ -25,8 +25,8 @@
 				<i class="fas fa-phone"></i>
 				<h3>Talk to Sales</h3>
 				<p>Interested in Product? Just Pick up the phone to chat with a member of our sales team</p>
-				<span><a href="https://api.whatsapp.com/send?phone=03009611909&amp;text=Welcome%20to%20Bushido%20Instruments" target="_blank">+92-300-9611909</a></span><br>
-				<span><a href="mailto:info@bushidoinstruments.com" target="_blank">info@bushidoinstruments.com</a></span>
+				<span><a href="https://api.whatsapp.com/send?phone=03009611909&amp;text=Welcome%20to%20Bushido%20Instruments" target="_blank">+92-308-3731896</a></span><br>
+				<span><a href="mailto:info@ls-instrument.com" target="_blank">info@ls-instrument.com</a></span>
 			</div>
 			<div class="cs2">
 				<i class="fas fa-message"></i>
